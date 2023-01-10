@@ -1,0 +1,17 @@
+Select P.TempatTinggal, Count(P.Id) 
+From PahlawanSuper P 
+Join Senjata S on P.Id = S.PahlawanSuperId
+Join JenisSenjata J on S.JenisSenjataId = J.Id
+Where J.JenisSenjata = 'kapak'
+Group By P.TempatTinggal
+
+SELECT C.id, COUNT(P.id) as count 
+FROM Category C
+Join Product P on S.Id = P.CategoryId
+GROUP BY C.id
+
+SELECT *
+FROM OrderDetails O 
+Join Product P on P.productid = O.productid
+where P.productname LIKE 'Ch%' 
+

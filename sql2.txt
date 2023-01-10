@@ -1,0 +1,6 @@
+Select P.TempatTinggal, Count(P.Id) 
+From PahlawanSuper P 
+Join Senjata S on P.Id = S.PahlawanSuperId
+Join JenisSenjata J on S.JenisSenjataId = J.Id
+Where J.JenisSenjata = 'kapak'
+Group By P.TempatTinggal

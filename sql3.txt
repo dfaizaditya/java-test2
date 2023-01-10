@@ -1,0 +1,10 @@
+WITH cte AS (
+    SELECT *, RANK() OVER (ORDER BY PP.TanggalPisah DESC) rnk
+    FROM Perpisahan PP
+)
+
+SELECT E.Nama, R.TanggalPisah
+FROM Penduduk E
+Join Pasangan A on A.PendudukId = E.Id
+Join cte R on R.PasanganId = A.Id
+WHERE rnk <= 100;

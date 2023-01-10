@@ -1,0 +1,14 @@
+SELECT Ponsel.Merek, COUNT(Ponsel.Model)
+FROM Ponsel
+WHERE Ponsel.DualSim = TRUE;
+
+adalah salah, karena kekurangan property "Group By".
+karena COUNT merupakan "Aggregate Function" maka perlu
+ditambahkan property "Group By" kolom merek yang 
+menunjukan data count akan dikumpulkan berdasarkan merek.
+Maka query yang benar adalah :
+
+SELECT Ponsel.Merek, COUNT(Ponsel.Model)
+FROM Ponsel
+WHERE Ponsel.DualSim = TRUE
+Group By Ponsel.Merek;
